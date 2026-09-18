@@ -1,0 +1,11 @@
+const prompt=require("prompt-sync")();
+console.log(" ---- Point 1 ---- ");
+let x1 = Number(prompt("Entrer  x1 =  "));
+let y1 = Number(prompt(" y1=  "));
+let z1 = Number(prompt(" z1=  "));
+console.log(" ---- Point 2 ----");
+let x2 = Number(prompt("Entrer  x2 =  "));
+let y2 = Number(prompt(" y2 =  "));
+let z2 = Number(prompt(" z2 =  "));
+distance = ((x2-x1)**2 + (y2-y1)**2 + (z2-z1)**2) ** (1/2);
+console.log(`la distance entre deux points est : ${distance}`);
