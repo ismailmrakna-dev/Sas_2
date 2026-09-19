@@ -1,6 +1,6 @@
 console.log("Hello");
 const prompt=require('prompt-sync')();
-console.log(" ---- Factorielle d'un Nombre ----")
+console.log(" ----  Nombre Impairs  ----")
 let num = parseInt(prompt('Donnez un numbre entiere: '));
 let comp = 0;
 i=1

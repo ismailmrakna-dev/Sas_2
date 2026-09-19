@@ -1,19 +1,23 @@
 console.log("Hello");
 const prompt=require('prompt-sync')();
-console.log(" ---- Factorielle d'un Nombre ----")
-let num = parseInt(prompt('Donnez un numbre entiere: '));
-
+console.log(" ---- Pyramides * ----")
+let num = parseInt(prompt('Donnez un numbre entiere : '));
 let i=1;
-
-console.log(` ---- Affichage des ${num}  Nombres Premiers ----`)
+let star = "*";
+let ligne="";
+let j=0;
+let space="";
+console.log(` ---- Affichage de Pyramides * Nombres ----`)
 while(i <= num){
-      
-        for (let j=2; j < parseInt(i); j++ ){
-          if(i%j === 0){
-            break;
-          } console.log(i); 
+    ligne="";
+    space="";
+    while(j <= Math.floor((2*num)/2)){
+          space = space+" ";
+          j++;
         }
-        
-     i++;
-    
+    ligne = space + star;
+    console.log(ligne);      
+    star = star + "**";
+    j=i;
+    i++;
 }

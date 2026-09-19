@@ -3,5 +3,4 @@ console.log(" ---- Table de Multiplication ----")
 let num = parseInt(prompt('Donnez un numbre entiere: '));
 console.log(` ---- Table de Multiplication de ${num} ----`)
 for(i=1;i<=10;i++){
-    console.log(`  ${num*i}  `);
-}
+    console.log(` ${num} x ${i} ${num*i}  `);}
