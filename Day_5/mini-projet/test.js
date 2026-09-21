@@ -17,3 +17,7 @@ apprenants[0].affiche= function (){
     console.log("prenom "+this.prenom + "note " +this.note)
 }
 apprenants[0].affiche()
+const arr=[] 
+Str="ali";
+arr.push(Str)
+console.log(arr)

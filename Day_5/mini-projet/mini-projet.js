@@ -14,20 +14,22 @@ console.log(" **9. Ajouter New Skill  ***")
 console.log(" **0. Quitter** le programme")
 function Ajouter(arr){
      const apprenant={}
-     let cont=true
+     let cond1=true
      do{
-     let prenom=prompt(" Entez le nom: ")
-     if(Rechercher(arr,prenom) === -1){
-        console.log("le prenom que vous avez entree Exist")
+     let prenom = prompt(" Entez le nom: ")
+     if(Rechercher(arr, prenom) === -1 ){
+        apprenant.prenom = prenom
+        cond1=false;
      }
-     else {apprenant.prenom=prenom
-         cont=false;
+     else {
+        console.log("le prenom que vous avez entree Exist")
+        
       }
-       }while(cont=true);
+       }while(cond1);
 
 
      apprenant.note=[]
-     cont=true
+     cond=true
      do{
      let note=Number(prompt(" Entez la note(0-20): "))
      if(note<0 || note>20){
@@ -35,30 +37,33 @@ function Ajouter(arr){
      }
      else {
          apprenant.note.push(note)
-         let num= Number(prompt("--- For Stop insert Note tapez 0 ---"))
+         let num= Number(prompt("--- For Stop insert Note tapez 0 --- : "))
          if(num===0){
-            cont = false;
+            cond = false;
          }
      }
-       }while((note<0 || note>20 ) && cont === true );
-       cont=true
+       }while( cond );
+       
        apprenant.skills=[]
+       cont=true
+       
         do{
-     let skill=(prompt(" Enter skill "))
+         let skill=prompt(" Enter skill ")
          apprenant.skills.push(skill)
-         let num= Number(prompt("--- For Stop insert Note tapez 0 ---"))
+         let num= Number(prompt("--- For Stop insert Skill tapez 0 ---  : "))
          if(num===0){
             cont = false; 
      }
-       }while(cont === true );
+       }while(cont );
 
      
-     apprenant.calMoyNote =function (){
+     apprenant.calMoyNote = function () {
         let som=0;
         for(let i=0 ; i < this.note.length;i++){
             som += this.note[i]
         }
-        return som/this.note.length
+        let moy = som/this.note.length
+        return moy
     }
 
      arr.push(apprenant)
@@ -70,22 +75,22 @@ function Affichage(arr){
      let j=0
      for (const apprenant of arr) {
         j++
-        console.log(`Etudiant ${j} : ${apprenant.prenom}   Notes: ${apprenant.note}   Skills: ${apprenant.note}`)
+        console.log(`Etudiant ${j} : ${apprenant.prenom} |  Notes: ${apprenant.note}  | Skills: ${apprenant.skills}`)
        }
      }
 
 
 function Rechercher(arr,nom){
      if (arr.length === 0)
-        return 0
-     let j=0
+        return -1
+     else if(arr.length > 0){let j=0
      for (const apprenant of arr) {
        if(apprenant.prenom === nom ){
          return j
        }
        j++
      }
-     return -1
+     return -1}
 }
 function AjouterNote(arr,nom){
     let newnote = Number(prompt("Entez la nouvelle note"))
@@ -131,32 +136,34 @@ function DeleteAppr(arr,nom){
        arr.length -= 1;
      }     
 function Maximum(arr)  {
-   let max=arr[0].calMoyNote;
+   let index=0; 
+   let max=arr[0].calMoyNote();
    for(let i=1; i< arr.length; i++){
-    if(arr[i].calMoyNote() > max){
+     if(arr[i].calMoyNote() > max){
         max=arr[i].calMoyNote();
         index=i
     }
 }   return index;
 }   
 function Minimum(arr)  {
-    let min = arr[0].calMoyNote;
+    let indx=0
+    let min = arr[0].calMoyNote();
     for(let i=1; i< arr.length; i++){
     if(arr[i].calMoyNote() < min){
         min=arr[i].calMoyNote();
-        index=i
+        indx=i
     }
 } 
-    return index
+    return indx
 }   
 
-cont=true;
+Arret=true;
 
 do{
     let choix = parseInt(prompt(" D'apres le menu, Entrez votre choix: "))
     switch(choix) {
         case 0:
-           cont=false; break;
+           Arret=false; break;
         case 1:
            Ajouter(array); break;
         
@@ -192,13 +199,15 @@ do{
         case 7: 
             index_maj=Maximum(array)
             index_min=Minimum(array)
-            console.log("le Majorant apprenant est" + array[index_maj] +" Sa Moy Note : "+array[index_maj].calMoyNote+"/20")
-            console.log("le Minorant apprenant est" + array[index_min] +" Sa Moy Note : "+array[index_min].calMoyNote+"/20")
+            console.log("le Majorant apprenant est " + array[index_maj].prenom +" Sa Moy Note : "+ array[index_maj].calMoyNote() +"/20")
+            console.log("le Minorant apprenant est " + array[index_min].prenom +" Sa Moy Note : "+array[index_min].calMoyNote()+"/20")
         break;
-        case 8: AjouterNote(array,nom); break; 
-        case 9: AjouteSkill(array,nom);break;  
+        case 8:let nam= prompt("Entez le prenom d'etudiant que vous voulez de rechercher ");
+               AjouterNote(array,nam); break; 
+        case 9: let name= prompt("Entez le prenom d'etudiant que vous voulez de rechercher ");
+                AjouteSkill(array,name);break;  
         default : console.log("!!!  Please, Your Choice Should be in Menu !!! ")
     }   
 
-}while(cont);
+}while(Arret);
 
