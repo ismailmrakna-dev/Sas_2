@@ -270,7 +270,7 @@ do{
 
         
         case 4: {
-                let idticket = parseInt(prompt("Identifiant du Ticket"))
+                let idticket = parseInt(prompt("Identifiant du Ticket: "))
                 let index=searchForTicket(tickets,idticket)
                 if(index !== -1){
                  trips[(tickets[index].tripid) -  1].availableSeats += 1   
@@ -281,8 +281,10 @@ do{
                 else console.log(" Aucun Ticket Enregistre ")
                 break;}
         
-        case 5:
-                break;
+        case 5:{
+                let nom = prompt("Votre Nom: ")
+                recherchTickParNom(trips, tickets ,nom)
+                break;}
         case 6: 
                 break;   
         case 7: 
@@ -358,6 +360,15 @@ function searchForTicket (arr , idticket){
         return -1
      }
      else return -1
+}
+function recherchTickParNom(arr,arr1 , nom){
+    for (const ticket of arr1){
+        if(ticket.passengerName === nom){
+            afficheTicket(arr, ticket)
+        }
+    }
+    console.log(" ---Ticket Introuvable(Nom No correct) --- ")
+
 }
 
 
