@@ -1,3 +1,4 @@
+const prompt=require("prompt-sync")();
 const trips = [
     {
         id: 1,
@@ -199,8 +200,9 @@ do{
     let choix = parseInt(prompt(" Votre Choix: "))
     switch(choix) {
         case 0:
-           Arret=false; break;
+           arret=false; break;
         case 1:
+            AfficheTrajets(trips)
             break;
         
         case 2:
@@ -223,4 +225,18 @@ do{
         default : console.log("!!!  Please, Your Choice Should be in Menu !!! ")
     }   
 
-}while(Arret);
+}while(arret);
+
+// Fonction Afficher les trajets
+function AfficheTrajets(arr){
+    console.log("=== TRAJETS DISPONIBLES ===")
+    for( const trajet of arr){
+       console.log("    ") 
+       console.log("id: " + trajet.id +"  " + trajet.departure +" --> "+trajet.destination)
+       console.log("Depart: "+ trajet.departureTime)
+       console.log("Arrivée: "+ trajet.arrivalTime)
+       console.log("Prix: "+ trajet.price)
+       console.log("Places Disponibles: " +trajet.availableSeats)
+       console.log("    ")
+    }
+}
