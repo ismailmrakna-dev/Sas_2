@@ -285,8 +285,10 @@ do{
                 let nom = prompt("Votre Nom: ")
                 recherchTickParNom(trips, tickets ,nom)
                 break;}
-        case 6: 
-                break;   
+        case 6:{
+                let nom = prompt("Nom Ville : ")
+                filtreTrajet (trips, nom)
+                break;}   
         case 7: 
              break;
         default : console.log("!!!  Please, Your Choice Should be in Menu !!! ")
@@ -369,6 +371,12 @@ function recherchTickParNom(arr,arr1 , nom){
     }
     console.log(" ---Ticket Introuvable(Nom No correct) --- ")
 
+}
+function filtreTrajet(arr, nom){
+    for (const trip of arr){
+        if( trip.departure === nom )
+            console.log(trip.departure +" --> "+ trip.destination + " : "+trip.price+"DH")
+    }
 }
 
 
