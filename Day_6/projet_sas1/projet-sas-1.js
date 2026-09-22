@@ -187,7 +187,8 @@ const trips = [
 // Declaration Array Tickets
 const tickets=[]
 const ticketAnulle = [];
-
+let id_t=0
+let seat = 1
 let arret = true;
 do{ 
     console.log("=============================================")
@@ -201,7 +202,7 @@ do{
     console.log("  6. Filter les trajets ")
     console.log("  7. Trier les trajets ")
     console.log("  0. Quitter ")
-
+    
     let choix = parseInt(prompt(" Votre Choix: "))
     switch(choix) {
         case 0:
@@ -212,45 +213,70 @@ do{
         
         case 2:{
             let nom= prompt("Nom du Passager: ") 
-            let id=parseInt(prompt("Identifiant du Trajet: "))
-            const obj=rechercheTrajet(trips,id)
-            if(obj.existe !== "trajet no existe"){
+            let id=parseInt(prompt("Identifiant du Trajet: "));
+
+            let check=rechercheTrajet(trips,id)
+            if(check === 1){
                 let ajoute=true
+                if(trips[id-1].availableSeats > 0){
+                    if(ticketAnulle.length > 0){
 
-                for(const ticket in tickets ){
-                    if(ticket.tripid === id){
-                        let index=searchForTicket(ticketAnulle, ticket.id)
-                        if(index !== -1){
-                            ticketAnulle[index].passengerName=nom
-                            ticketAnulle[index].status=true
-                            tickets.push(ticketAnulle[index])
-                            ticketAnulle.splice(index,index)
-                            trips[id-1] -= 1
-                            ajoute=false
+                        for(const ticket of ticketAnulle ){
+                            if(ticket.tripid === id){
+                                let index=searchForTicket(ticketAnulle, ticket.idT)
+                                if(index !== -1){
+                                    ticketAnulle[index].passengerName=nom
+                                    tickets.push(ticketAnulle[index])
+                                    ticketAnulle.splice(index,index)
+                                    trips[id-1].availableSeats -= 1
+                                    afficheTicket(trips, tickets[tickets.length-1])
+                                    ajoute=false
+                                    break;
+                                }
+                            }
                         }
+                        
                     }
-                }
                 if(ajoute){
+                    if(trips[id-1].availableSeats === 50){
+                        seat=1;
+                    }
+                    else if(trips[id-1].availableSeats <50){
+                        seat = searchAvailbleplace(tickets,id)
+                    }
+                    id_t = id_t + 1;
+                    tickets.push(creerTicket(trips[id-1],nom ,id_t, seat))
+                    trips[id-1].availableSeats -= 1
+                    console.log("  Ticket Acheté Avec Succès  ")
 
+                    afficheTicket(trips, tickets[tickets.length-1])
                 }
-
+            }
+            else console.log("  Train Complet  ")
 
             }
+            else console.log("  Trajet Introuvable  ")
             break;
         }
         case 3:
-            afficheTickets(tickets)
-            break;
+            {  
+              console.log(" ===   Tickets Enregistee ====") 
+              console.log("   ") 
+              for (const ticket of tickets){
+                afficheTicket(trips, ticket)
+                console.log("    ")
+            }
+            break;}
 
         
         case 4: {
-                let idticket = Number(prompt("Identifiant du Ticket"))
+                let idticket = parseInt(prompt("Identifiant du Ticket"))
                 let index=searchForTicket(tickets,idticket)
                 if(index !== -1){
+                 trips[(tickets[index].tripid) -  1].availableSeats += 1   
                  ticketAnulle.push(annulerTicket(tickets,index))
                  tickets.splice(index,index)
                  console.log(" Ticket annulé avec succès ")
-                 trips[tickets[index].tripid - 1] += 1
                 }
                 else console.log(" Aucun Ticket Enregistre ")
                 break;}
@@ -282,55 +308,51 @@ function afficheTrajets(arr){
 
 // Recherche un trajet d'apres id
 function rechercheTrajet (arr , idTrajet) {
-    const trj={};
-    trj.existe= "trajet no existe";
-    trj.placeDisp= null
     for (const trajet of arr){
         if(trajet.id === idTrajet){
-            trj.existe= "trajet existe";
-            if(trajet.availableSeats > 0){
-                 trj.placeDisp=trajet.availableSeats }
-            return trj          
+            return 1     
         }    
     }
-    return trj
+    return -1
 }
-function creerTicket(arr,nom, idtrajet){
+function creerTicket(obj,nom, id_T,seat){
     const ticket = {}
-    ticket.id = id
+    ticket.idT = id_T
     ticket.passengerName= nom
-    ticket.tripid= arr[idtrajet-1].id
+    ticket.tripid= obj.id
     ticket.seatNumber = seat
-    ticket.price= arr[idtrajet-1].price
-    ticket.status = true 
+    ticket.price= obj.price
     return ticket
 }
-function afficheTicket(arr, ticket){
+function afficheTicket (arr, ticket){
     console.log("  ")
-    console.log("Ticket #"+ticket.id)
+    console.log("Ticket #"+ ticket.idT )
     console.log("Passager: "+ticket.passengerName)
-    console.log("trajet: "+ arr[ticket.tripid].departure +" --> "+arr[ticket.tripid].destination)
-    console.log("Depart: "+ arr[ticket.tripid].departureTime)
-    console.log("Arrivee: "+ arr[ticket.tripid].arrivalTime)
+    console.log("trajet: "+ arr[ticket.tripid -1].departure +" --> "+arr[ticket.tripid -1].destination)
+    console.log("Depart: "+ arr[ticket.tripid -1].departureTime)
+    console.log("Arrivee: "+ arr[ticket.tripid -1].arrivalTime)
     console.log("Place: "+ticket.seatNumber)
     console.log("Prix: "+ticket.price+"DH")
 }
-function afficheTickets(arr){
-    for (const ticket of arr){
-        if(ticket.status)
-        {afficheTicket(arr,ticket)}
+function searchAvailbleplace(arr, id_t){
+    let seat=1
+    for(const ticket of arr){
+        if(ticket.tripid === id_t){
+            if ( ticket.seatNumber >= seat)
+                seat = ticket.seatNumber + 1
+        }
     }
+    return seat
 }
 function annulerTicket(arr,index) {
-    arr[index].status = false
     return arr[index]
 }
 function searchForTicket (arr , idticket){
-    let j=0
+    let j=-1
      if(arr.length > 0){
         for (const ticket of arr){
-            if(ticket.id === idticket)
-                j++
+            j++
+            if(ticket.idT === idticket)
                 return j
         }
         return -1
