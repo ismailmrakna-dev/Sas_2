@@ -289,8 +289,20 @@ do{
                 let nom = prompt("Nom Ville : ")
                 filtreTrajet (trips, nom)
                 break;}   
-        case 7: 
-             break;
+        case 7:{ 
+             const arrID=[]
+             for(j=0 ;j<20; j++){
+                arrID.push(j)
+             }
+             console.log(arrID)
+             console.log("")
+             trierTrajet(trips,arrID)
+             console.log(arrID)
+             for(i=0; i < trips.length ; i++){
+                console.log(trips[arrID[i]].departure +" --> "+ trips[arrID[i]].destination +" : "+ trips[arrID[i]].price+"DH")
+             }
+
+             break;}
         default : console.log("!!!  Please, Your Choice Should be in Menu !!! ")
     }   
 
@@ -378,5 +390,25 @@ function filtreTrajet(arr, nom){
             console.log(trip.departure +" --> "+ trip.destination + " : "+trip.price+"DH")
     }
 }
+function trierTrajet(arr,arr1){
+    let prixmin = arr[0].price
+        for(i=0 ; i < arr.length ; i++){
+            prixmin=arr[arr1[i]].price
+            for(j=i; j< arr.length; j++){
+                if(arr[arr1[j]].price <= prixmin){
+                    prixmin = arr[arr1[j]].price
+                    id = j
+                }
+            }
+            if(i!==j){
+                temp=arr1[id]
+                arr1[id]=arr1[i]
+                arr1[i]=temp
+            }
+            
+        }
+    }
+
+
 
 
