@@ -13,7 +13,7 @@ do{
  function bubble_sort(nombre){
     let temp=0;
     for(let i=0; i< nombre.length; i++){
-      for(j=0; j<nombre.length-1;j++)
+      for(j=0; j<nombre.length-i-1;j++)
         {
         if(nombre[j] < nombre[j+1]){
           temp = nombre[j]
