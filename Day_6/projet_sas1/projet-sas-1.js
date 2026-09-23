@@ -217,7 +217,7 @@ do{
         case 2:{
             let nom= prompt("Nom du Passager: ") 
             let id=parseInt(prompt("Identifiant du Trajet: "));
-
+            id_t = id_t + 1;
             let check=rechercheTrajet(trips,id)
             if(check === 1){
                 let ajoute=true
@@ -229,6 +229,7 @@ do{
                                 let index=searchForTicket(ticketAnulle, ticket.idT)
                                 if(index !== -1){
                                     ticketAnulle[index].passengerName=nom
+                                    ticketAnulle[index].idT = id_t
                                     tickets.push(ticketAnulle[index])
                                     ticketAnulle.splice(index,index)
                                     trips[id-1].availableSeats -= 1
@@ -247,7 +248,6 @@ do{
                     else if(trips[id-1].availableSeats <50){
                         seat = searchAvailbleplace(tickets,id)
                     }
-                    id_t = id_t + 1;
                     tickets.push(creerTicket(trips[id-1],nom ,id_t, seat))
                     trips[id-1].availableSeats -= 1
                     console.log("  Ticket Acheté Avec Succès  ")
