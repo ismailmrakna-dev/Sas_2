@@ -201,6 +201,9 @@ do{
     console.log("  5. Recherche un ticket ")
     console.log("  6. Filter les trajets ")
     console.log("  7. Trier les trajets ")
+    console.log("  8. Nombre Total Ticket Vendus ")
+    console.log("  9. chiffre D'affaires total ")
+    console.log("  10. Trajet le Plus Vendus ")
     console.log("  0. Quitter ")
     
     let choix = parseInt(prompt(" Votre Choix: "))
@@ -303,6 +306,14 @@ do{
              }
 
              break;}
+        case 8: console.log(" Nombre Total De Tickets : "+ ticketVendus(tickets))
+            break;  
+        case 9:console.log (" Chiffres d'Affaires total :  " +chiffres(tickets))
+            break;
+        case 10:{ let index=TrajetVendus(trips)
+            console.log(" Trajet le plus Vendus :  "+ trips[index].departure +" --> "+ trips[index].destination)
+            console.log((50-trips[index].availableSeats)+" Tickets Vendus")
+            break;  }         
         default : console.log("!!!  Please, Your Choice Should be in Menu !!! ")
     }   
 
@@ -408,6 +419,33 @@ function trierTrajet(arr,arr1){
             
         }
     }
+function ticketVendus(arr) {
+    let cmp=0
+    for (ticket of arr){
+        cmp++
+    }
+    return cmp
+}   
+function TrajetVendus(arr){
+    let index=0;
+    let min=arr[0].availableSeats;
+    for(let j=0; j < arr.length;j++)
+        {
+        if(arr[j].availableSeats <= min){
+          min = arr[j].availableSeats;
+          index = j;
+        }
+    }
+  return index
+}
+function chiffres(arr){
+    let som=0
+    for (const ticket of arr){
+        som += ticket.price
+    }
+    return som
+}
+
 
 
 
