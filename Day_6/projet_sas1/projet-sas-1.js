@@ -286,7 +286,10 @@ do{
         
         case 5:{
                 let nom = prompt("Votre Nom: ")
-                recherchTickParNom(trips, tickets ,nom)
+                i = recherchTickParNom(trips, tickets ,nom)
+                if(i===-1){
+                    console.log(" ---Ticket Introuvable(Nom No correct) --- ")
+                }
                 break;}
         case 6:{
                 let nom = prompt("Nom Ville : ")
@@ -390,9 +393,10 @@ function recherchTickParNom(arr,arr1 , nom){
     for (const ticket of arr1){
         if(ticket.passengerName === nom){
             afficheTicket(arr, ticket)
+            return 1
         }
     }
-    console.log(" ---Ticket Introuvable(Nom No correct) --- ")
+    return -1
 
 }
 function filtreTrajet(arr, nom){
