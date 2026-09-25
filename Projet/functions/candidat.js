@@ -6,7 +6,7 @@ const {
 
 
 
-//Modify a candidat After Cheeking
+//Modify a candidat After Cheeking 
 function modifierCandidat(candidats,cin){
     let index = searchCandidat(candidats,cin)
     if(index !== -1){
@@ -20,7 +20,10 @@ function modifierCandidat(candidats,cin){
                 console.log("Partie Politique modifie avec Succes")
                 break
            case 2: 
-                let age=parseInt(prompt("Entez votre nouveau age: "))
+                let age=0
+                do{
+                age = parseInt(prompt("Entez nouveau age: "))
+                }while(age<=0 || age>120)
                 candidats[index].age=age
                 console.log("Age modifie avec Succes")
                 break
