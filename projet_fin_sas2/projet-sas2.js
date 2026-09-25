@@ -104,24 +104,20 @@ do{
 // Ajouter un nouveau Candidat
 function ajouterCandidat(){
     const candidat= {}
-    let cin=prompt("Entez votre CIN(Numero De Carte Nationnal): ")
-    let index=rechercheCandidat(candidats,cin)
-    if(index === -1){
-        let nom=prompt("Entez votre Nom: ")
-        let prenom=prompt("Entez votre Prenom: ")
-        let partiPolitique=prompt("Entez votre Partie Politique: ")
-        let age=parseInt(prompt("Entez votre age: "))
-        if(partiPolitique==="" || partiPolitique===" " ||partiPolitique==="  ")
-            partiPolitique = "Independant"
-        candidat.cin=cin
-        candidat.nom=nom
-        candidat.prenom=prenom
-        candidat.partiPolitique=partiPolitique
-        candidat.age=age
-        candidat.electeurs=[]
-        return candidat 
-    }
-    else console.log("xx-- Candidat CIN deja Existe Dans la Liste des Candidats --xx")
+    let cinCand=String (prompt("Entez votre CIN(Numero De Carte Nationnal): "))
+    let nom=prompt("Entez votre Nom: ")
+    let prenom=prompt("Entez votre Prenom: ")
+    let partiPolitique=prompt("Entez votre Partie Politique: ")
+    let age=parseInt(prompt("Entez votre age: "))
+    if(partiPolitique==="" || partiPolitique===" " ||partiPolitique==="  ")
+        partiPolitique = "Independant"
+    candidat.cin=cinCand
+    candidat.nom=nom
+    candidat.prenom=prenom
+    candidat.partiPolitique=partiPolitique
+    candidat.age=age
+    candidat.electeurs=[]
+    return candidat 
 
 }
 // Affichage les Information d'un candidat
@@ -152,30 +148,23 @@ function affichageCandidats(candidats){
                     afficherCandidat(candidat)
                     console.log(" ")
                 }
-                break
+                break;
                
            case 2:
                 let partPolitique=prompt("Enter la Partie Politique Des Candidats: ") 
                 let cmp=0
                 for (const candidat of candidats){
                     if(candidat.partiPolitique.toLowerCase() === partPolitique.toLowerCase()){
-                        comp++
+                        cmp++
                         console.log(" ")
                         console.log("Candidat: #"+cmp)
                         afficherCandidat(candidat)
                         console.log(" ")
                     }
                 }
-                break 
+                break ;
+            default : console.log("!!!  Please, Your Choice Should be in Menu !!! ")    
         }
-    let comp=0
-    for (const candidat of candidats){
-        comp++
-        console.log(" ")
-        console.log("Candidat: #"+comp)
-        afficherCandidat(candidat)
-        console.log(" ")
-    }
 }
 // pour un Electeur Voulez de voter sur un Candidat 
 function voterCandidat(candidats){
@@ -204,11 +193,11 @@ function verifieElecteur(candidats,cniElec){
     return true
 }
 // search un candidat D'apres Votre CIN avec Donnez leur indice in tableau des Candidats
-function searchCandidat(candidats,cin){
+function searchCandidat(candidats, cin_cand){
     let index=0
     for (const candidat of candidats){
-        if(cin.toLowerCase() === candidat.cin.toLowerCase()){
-            return index
+        if(candidats[index].cin.toLowerCase() == cin_cand.toLowerCase()){
+           return index 
         }
         index++
     }
@@ -230,7 +219,7 @@ function modifierCandidat(candidats,cin){
                 let age=parseInt(prompt("Entez votre nouveau age: "))
                 candidats[index].age=age
                 break
-           case 2: 
+           case 3: 
                 let nom=prompt("Entez votre nouveau nom: ")
                 candidats[index].nom=nom
                 break 
