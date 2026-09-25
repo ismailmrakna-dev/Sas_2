@@ -94,3 +94,6 @@ do{
 
 }while(arret);
 }
+export default{
+    startMenu 
+}
