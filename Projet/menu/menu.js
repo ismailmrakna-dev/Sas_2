@@ -2,29 +2,19 @@ const prompt=require('prompt-sync')()
 const {
     ajouterCandidat,
     ajouterMultiCand,
-    afficherCandidat,
     affichageCandidats  
 }=require("../functions/candidats");
 
 const {
-    voterCandidat,
-    verifieElecteur,
-    searchCandidat  
+    voterCandidat  
 }=require("../functions/electeurs");
 
 const {
-    modifierCandidat,
     editCandidat,
-    lengthArr,
     SupprimerCandidat,
     rechercheCandidat 
 }=require("../functions/candidat");
 const {
-    nombreCandidat,
-    nombreVotes,
-    trierCandidats,
-    topCandidats,
-    partiPolitiqueCandidats,
     statistics 
 }=require("../functions/statistics");
 const {candidats}=require("../data/data");

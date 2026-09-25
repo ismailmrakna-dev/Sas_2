@@ -1,4 +1,13 @@
 const prompt=require('prompt-sync')()
+const {
+    afficherCandidat
+}=require("../functions/candidats");
+
+const {
+    searchCandidat  
+}=require("../functions/electeurs");
+
+
 
 //Modify a candidat After Cheeking
 function modifierCandidat(candidats,cin){

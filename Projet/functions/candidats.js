@@ -1,4 +1,13 @@
 const prompt=require('prompt-sync')()
+const {
+    searchCandidat  
+}=require("../functions/electeurs");
+
+const {
+    trierCandidats
+}=require("../functions/statistics");
+
+const {candidats}=require("../data/data");
 
 // Ajouter un nouveau Candidat
 function ajouterCandidat(cinCand){

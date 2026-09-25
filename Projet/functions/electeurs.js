@@ -1,6 +1,5 @@
 const prompt=require('prompt-sync')()
 
-
 // pour un Electeur Voulez de voter sur un Candidat 
 function voterCandidat(candidats){
     let cniElec= prompt("Entez votre CIN(Numero De Carte Nationnal): ")

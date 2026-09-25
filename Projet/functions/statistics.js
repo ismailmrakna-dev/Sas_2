@@ -1,4 +1,13 @@
 const prompt=require('prompt-sync')()
+const {
+    afficherCandidat
+     
+}=require("../functions/candidats");
+
+
+const {
+    lengthArr,
+}=require("../functions/candidat");
 
 // Statistiques de l'Election
 // Affichage du Nombre Total Des Candidats 
