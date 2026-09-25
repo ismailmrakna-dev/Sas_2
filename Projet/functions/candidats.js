@@ -26,10 +26,7 @@ function ajouterCandidat(cinCand){
     candidat.prenom=prenom
     candidat.partiPolitique=partiPolitique
     candidat.age=age
-    candidat.electeurs=[]
-    candidat.votes()= function(){
-        console.log("votes: "+this.electeurs.length)
-    }
+    candidat.electeurs=[] 
     console.log("Candidat Ajoute avec Succes")
     return candidat 
 }
@@ -75,6 +72,7 @@ function affichageCandidats(candidats){
                         console.log(" ")
                         console.log("Candidat: #"+cmp)
                         console.log(candidat)
+                        console.log("Numbers Votes: "+candidat.electeurs.length)
                         console.log(" ")
                     }
                 }

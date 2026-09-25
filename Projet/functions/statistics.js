@@ -43,6 +43,7 @@ function topCandidats(candidats){
     else{
         for (const candidat of candidats){
             console.log(candidat)
+            console.log("Numbers Votes: "+ candidat.electeurs.length)
             console.log("")
             index -= 1
             if(index <=0 ){
