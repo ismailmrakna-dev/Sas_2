@@ -104,11 +104,14 @@ do{
 // Ajouter un nouveau Candidat
 function ajouterCandidat(){
     const candidat= {}
-    let cinCand=String (prompt("Entez votre CIN(Numero De Carte Nationnal): "))
-    let nom=prompt("Entez votre Nom: ")
-    let prenom=prompt("Entez votre Prenom: ")
-    let partiPolitique=prompt("Entez votre Partie Politique: ")
-    let age=parseInt(prompt("Entez votre age: "))
+    let cinCand=prompt("Entez votre CIN(Numero De Carte Nationnal): ")
+    let nom=String(prompt("Entez votre Nom: "))
+    let prenom=String(prompt("Entez votre Prenom: "))
+    let partiPolitique=String(prompt("Entez votre Partie Politique: "))
+    let age=0
+    do{
+    age = parseInt(prompt("Entez votre age: "))
+    }while(age<=0 || age>120)
     if(partiPolitique==="" || partiPolitique===" " ||partiPolitique==="  ")
         partiPolitique = "Independant"
     candidat.cin=cinCand
