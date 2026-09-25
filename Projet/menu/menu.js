@@ -1,4 +1,35 @@
 const prompt=require('prompt-sync')()
+const {
+    ajouterCandidat,
+    ajouterMultiCand,
+    afficherCandidat,
+    affichageCandidats  
+}=require("../functions/candidats").default;
+
+const {
+    voterCandidat,
+    verifieElecteur,
+    searchCandidat  
+}=require("../functions/electeurs").default;
+
+const {
+    modifierCandidat,
+    editCandidat,
+    lengthArr,
+    SupprimerCandidat,
+    rechercheCandidat 
+}=require("../functions/candidat").default;
+const {
+    nombreCandidat,
+    nombreVotes,
+    trierCandidats,
+    topCandidats,
+    partiPolitiqueCandidats,
+    statistics 
+}=require("../functions/statistics").default;
+const {candidats}=require("../data/data").default;
+
+function startMenu(){
 let arret = true;
 do{ 
     console.log("=================================================")
@@ -62,3 +93,4 @@ do{
     }   
 
 }while(arret);
+}

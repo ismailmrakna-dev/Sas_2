@@ -76,3 +76,9 @@ function affichageCandidats(candidats){
             default : console.log("!!!  Please, Your Choice Should be in Menu !!! ")    
         }
 }
+export default{
+    ajouterCandidat,
+    ajouterMultiCand,
+    afficherCandidat,
+    affichageCandidats  
+}

@@ -62,3 +62,10 @@ function rechercheCandidat(candidats){
     }
     return -1
 }
+export default{
+    modifierCandidat,
+    editCandidat,
+    lengthArr,
+    SupprimerCandidat,
+    rechercheCandidat 
+};

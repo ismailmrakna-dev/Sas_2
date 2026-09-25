@@ -1,1 +1,2 @@
-const myFunc= require("")()
+const {startMenu}= require("./menu/menu");
+startMenu()

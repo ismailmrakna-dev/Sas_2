@@ -164,3 +164,5 @@ const candidats=[
         electeurs: [] 
     }
 ]
+
+export default{candidats};

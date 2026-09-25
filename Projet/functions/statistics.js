@@ -106,3 +106,14 @@ function statistics(){
                 console.log("xx-- choix n'existe pas --xx")         
             }
 }
+
+
+// exports module
+export default{
+    nombreCandidat,
+    nombreVotes,
+    trierCandidats,
+    topCandidats,
+    partiPolitiqueCandidats,
+    statistics 
+};

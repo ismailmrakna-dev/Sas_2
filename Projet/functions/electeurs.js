@@ -35,3 +35,9 @@ function searchCandidat(candidats, cin_cand){
     }
     return -1
 }
+
+export default{
+    voterCandidat,
+    verifieElecteur,
+    searchCandidat  
+}
