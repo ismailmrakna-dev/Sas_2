@@ -4,13 +4,13 @@ const {
     ajouterMultiCand,
     afficherCandidat,
     affichageCandidats  
-}=require("../functions/candidats").default;
+}=require("../functions/candidats");
 
 const {
     voterCandidat,
     verifieElecteur,
     searchCandidat  
-}=require("../functions/electeurs").default;
+}=require("../functions/electeurs");
 
 const {
     modifierCandidat,
@@ -18,7 +18,7 @@ const {
     lengthArr,
     SupprimerCandidat,
     rechercheCandidat 
-}=require("../functions/candidat").default;
+}=require("../functions/candidat");
 const {
     nombreCandidat,
     nombreVotes,
@@ -26,8 +26,9 @@ const {
     topCandidats,
     partiPolitiqueCandidats,
     statistics 
-}=require("../functions/statistics").default;
-const {candidats}=require("../data/data").default;
+}=require("../functions/statistics");
+const {candidats}=require("../data/data");
+
 
 function startMenu(){
 let arret = true;
@@ -93,7 +94,9 @@ do{
     }   
 
 }while(arret);
+
+
 }
-export default{
+module.exports={
     startMenu 
-}
+};

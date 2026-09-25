@@ -1,3 +1,6 @@
+const prompt=require('prompt-sync')()
+
+//Modify a candidat After Cheeking
 function modifierCandidat(candidats,cin){
     let index = searchCandidat(candidats,cin)
     if(index !== -1){
@@ -21,6 +24,7 @@ function modifierCandidat(candidats,cin){
     }
     else console.log("Il n'y a pas Un candidat avec CIN:  " + cin)
 }
+// Appel of ModifierCandidat & Affiche Menu
 function editCandidat(){
     console.log("----------  Menu Modifier Candidat  ----------")
     console.log("")
@@ -62,7 +66,7 @@ function rechercheCandidat(candidats){
     }
     return -1
 }
-export default{
+module.exports={
     modifierCandidat,
     editCandidat,
     lengthArr,

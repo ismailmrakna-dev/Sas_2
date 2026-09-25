@@ -1,3 +1,5 @@
+const prompt=require('prompt-sync')()
+
 // Ajouter un nouveau Candidat
 function ajouterCandidat(cinCand){
     const candidat= {}
@@ -76,9 +78,9 @@ function affichageCandidats(candidats){
             default : console.log("!!!  Please, Your Choice Should be in Menu !!! ")    
         }
 }
-export default{
+module.exports={
     ajouterCandidat,
     ajouterMultiCand,
     afficherCandidat,
     affichageCandidats  
-}
+};

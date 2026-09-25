@@ -1,3 +1,5 @@
+const prompt=require('prompt-sync')()
+
 // Statistiques de l'Election
 // Affichage du Nombre Total Des Candidats 
 function nombreCandidat(candidats){
@@ -110,7 +112,7 @@ function statistics(){
 
 
 // exports module
-export default{
+module.exports={
     nombreCandidat,
     nombreVotes,
     trierCandidats,

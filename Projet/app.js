@@ -1,2 +1,3 @@
-const {startMenu}= require("./menu/menu")().default;
+
+const {startMenu}= require("./menu/menu");
 startMenu()

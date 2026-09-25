@@ -1,3 +1,6 @@
+const prompt=require('prompt-sync')()
+
+
 // pour un Electeur Voulez de voter sur un Candidat 
 function voterCandidat(candidats){
     let cniElec= prompt("Entez votre CIN(Numero De Carte Nationnal): ")
@@ -36,8 +39,8 @@ function searchCandidat(candidats, cin_cand){
     return -1
 }
 
-export default{
+module.exports={
     voterCandidat,
     verifieElecteur,
     searchCandidat  
-}
+};
