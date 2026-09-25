@@ -135,20 +135,37 @@ function afficherCandidat(candidat){
 }
 // Affichage tous candidats
 function affichageCandidats(candidats){
+    console.log("---------- Menu Affichage Candidats ---------")
+    console.log("1. Trier les candidats par nombre de votes")
+    console.log("2. Filtrer et afficher uniquement les candidats d'un parti politique spécifique.") 
+    console.log(" ")
+
     let choix=parseInt(prompt("Entrez Votre choix: "))
         switch(choix){
            case 1 : 
                 trierCandidats(candidats)
-                for(const candidat of candidats){
-
+                let comp=0
+                for (const candidat of candidats){
+                    comp++
+                    console.log(" ")
+                    console.log("Candidat: #"+comp)
                     afficherCandidat(candidat)
-                    console.log("")
+                    console.log(" ")
                 }
                 break
-           case 2: 
                
-           case 2: 
-                
+           case 2:
+                let partPolitique=prompt("Enter la Partie Politique Des Candidats: ") 
+                let cmp=0
+                for (const candidat of candidats){
+                    if(candidat.partiPolitique.toLowerCase() === partPolitique.toLowerCase()){
+                        comp++
+                        console.log(" ")
+                        console.log("Candidat: #"+cmp)
+                        afficherCandidat(candidat)
+                        console.log(" ")
+                    }
+                }
                 break 
         }
     let comp=0
