@@ -37,8 +37,11 @@ do{
                   candidats.push(ajouterCandidat(cinCand))
                }
                else console.log("Candidat CIN: "+ cinCand +" Deja Existe dans Candidats")
-            }break;
+                
+            }
+            break;
         }
+
         case 3:
             {  
                 affichageCandidats(candidats)
@@ -122,8 +125,8 @@ function ajouterCandidat(cinCand){
     candidat.age=age
     candidat.electeurs=[]
     return candidat 
-}
 
+}
 // Affichage les Information d'un candidat
 function afficherCandidat(candidat){
     console.log("CIN: "+ candidat.cin)
