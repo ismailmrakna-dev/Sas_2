@@ -21,6 +21,16 @@ function modifierCandidat(candidats,cin){
     }
     else console.log("Il n'y a pas Un candidat avec CIN:  " + cin)
 }
+function editCandidat(){
+    console.log("----------  Menu Modifier Candidat  ----------")
+    console.log("")
+    console.log("1. Modifier le parti politique d'un candidat.")
+    console.log("2. Modifier l'âge d'un candidat.")
+    console.log("3. Modifier nom d'un candidat.")
+    console.log("")
+    let cin =prompt(" Enter votre CIN: ")
+    modifierCandidat(candidats,cin)
+}
 
 // Calcul length ARRAY
 function lengthArr(arr){

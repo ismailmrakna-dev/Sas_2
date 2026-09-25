@@ -80,3 +80,29 @@ function partiPolitiqueCandidats(candidats){
         console.log("")
     }
 }
+function statistics(){
+    console.log("-------- Menu Des statistiques ---------")
+            console.log(" ")
+            console.log("1. Affichage du Nombre Total Des Candidats ")
+            console.log("2. affichage du Nombre total des Votes Exprimes ")
+            console.log("3. Affichage du Top 3 Candidats")
+            console.log("4. Affichage des Candidats par parti politique")
+            console.log("")
+            let bonus=parseInt(prompt("Enter votre choix: "))
+            switch(bonus){
+                case 1 :
+                    nombreCandidat(candidats) 
+                    break;
+                case 2 :
+                    console.log("Votes Exprimes A l'Election: "+nombreVotes(candidats))
+                    break;
+                case 3 :
+                    topCandidats(candidats)
+                    break;
+                case 4 :
+                    partiPolitiqueCandidats(candidats)
+                    break;
+                default:  
+                console.log("xx-- choix n'existe pas --xx")         
+            }
+}

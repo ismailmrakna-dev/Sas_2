@@ -18,6 +18,17 @@ function ajouterCandidat(cinCand){
     candidat.electeurs=[]
     return candidat 
 }
+function ajouterMultiCand(){
+    let num_cand=parseInt(prompt("Enter numbre Of candidat vous voulez d'ajouter: "))
+    for(let i=0;i<num_cand;i++){
+        console.log ("Candidat: #" +(num_cand-i)) 
+        let cinCand = String(prompt("Entez votre CIN(Numero De Carte Nationnal): "))
+        if(searchCandidat(candidats,cinCand) === -1){
+            candidats.push(ajouterCandidat(cinCand))
+        }
+        else console.log("Candidat CIN: "+ cinCand +" Deja Existe dans Candidats")
+    }
+}
 
 // Affichage les Information d'un candidat
 function afficherCandidat(candidat){

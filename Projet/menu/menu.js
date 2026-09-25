@@ -1,6 +1,5 @@
 const prompt=require('prompt-sync')()
 let arret = true;
-const condidats=[]
 do{ 
     console.log("=================================================")
     console.log("---------    Gestion des Élections    -----------")
@@ -24,36 +23,40 @@ do{
            arret=false; break;
 
         case 1:{
-           
+            candidats.push(ajouterCandidat())
             break;
         }
 
         case 2:{
-          
+            ajouterMultiCand()
             break;
         }
 
         case 3:
             {  
-              
+              affichageCandidats(candidats)
             break;}
      
         case 4: {
-                
+                voterCandidat(candidats)
                 break;}
         
         case 5:{
-                
+                editCandidat()
                 break;}
         case 6:{
-                
+                let cin =prompt(" Enter votre CIN: ")
+                SupprimerCandidat(candidats, cin)
                 break;}  
 
         case 7:{ 
-  
+            let index=rechercheCandidat(candidats)
+            if (index === -1)
+                console.log("xx- il n'ya pas un candidat avec ce Nom -xx")
             break;} 
              
         case 8:{
+            statistics()
             break;  }         
         default : console.log("!!!  Please, Your Choice Should be in Menu !!! ")
     }   
