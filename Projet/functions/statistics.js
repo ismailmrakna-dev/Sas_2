@@ -80,6 +80,7 @@ function partiPolitiqueCandidats(candidats){
         console.log("")
     }
 }
+// function to start statistics choice
 function statistics(){
     console.log("-------- Menu Des statistiques ---------")
             console.log(" ")
