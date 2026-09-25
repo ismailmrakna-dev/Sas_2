@@ -1,9 +1,4 @@
 const prompt=require('prompt-sync')()
-const {
-    afficherCandidat
-     
-}=require("../functions/candidats");
-
 
 const {
     lengthArr,
@@ -47,7 +42,7 @@ function topCandidats(candidats){
     }
     else{
         for (const candidat of candidats){
-            afficherCandidat(candidat)
+            console.log(candidat)
             console.log("")
             index -= 1
             if(index <=0 ){
@@ -82,7 +77,7 @@ function partiPolitiqueCandidats(candidats){
         console.log("-----------------------------")
         for (const candidat of candidats){
             if(politique.toLowerCase()=== candidat.partiPolitique.toLowerCase()){
-                afficherCandidat(candidat)
+                console.log(candidat)
                 console.log("")
                 number++
             }
@@ -92,7 +87,7 @@ function partiPolitiqueCandidats(candidats){
     }
 }
 // function to start statistics choice
-function statistics(){
+function statistics(candidats){
     console.log("-------- Menu Des statistiques ---------")
             console.log(" ")
             console.log("1. Affichage du Nombre Total Des Candidats ")

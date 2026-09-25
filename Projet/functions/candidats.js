@@ -4,7 +4,7 @@ const {
 }=require("../functions/electeurs");
 
 const {
-    trierCandidats
+    trierCandidats,
 }=require("../functions/statistics");
 
 const {candidats}=require("../data/data");
@@ -27,6 +27,10 @@ function ajouterCandidat(cinCand){
     candidat.partiPolitique=partiPolitique
     candidat.age=age
     candidat.electeurs=[]
+    candidat.votes()= function(){
+        console.log("votes: "+this.electeurs.length)
+    }
+    console.log("Candidat Ajoute avec Succes")
     return candidat 
 }
 function ajouterMultiCand(){
@@ -41,15 +45,6 @@ function ajouterMultiCand(){
     }
 }
 
-// Affichage les Information d'un candidat
-function afficherCandidat(candidat){
-    console.log("CIN: "+ candidat.cin)
-    console.log("Nom: "+candidat.nom)
-    console.log("Prenom: "+candidat.prenom)
-    console.log("Partie Politique: "+candidat.partiPolitique)
-    console.log("Age: "+candidat.age)
-    console.log("Electeurs: "+candidat.electeurs)
-}
 // Affichage tous candidats
 function affichageCandidats(candidats){
     console.log("---------- Menu Affichage Candidats ---------")
@@ -66,7 +61,7 @@ function affichageCandidats(candidats){
                     comp++
                     console.log(" ")
                     console.log("Candidat: #"+comp)
-                    afficherCandidat(candidat)
+                    console.log(candidat)
                     console.log(" ")
                 }
                 break;
@@ -79,7 +74,7 @@ function affichageCandidats(candidats){
                         cmp++
                         console.log(" ")
                         console.log("Candidat: #"+cmp)
-                        afficherCandidat(candidat)
+                        console.log(candidat)
                         console.log(" ")
                     }
                 }
@@ -90,6 +85,5 @@ function affichageCandidats(candidats){
 module.exports={
     ajouterCandidat,
     ajouterMultiCand,
-    afficherCandidat,
     affichageCandidats  
 };

@@ -41,8 +41,8 @@ do{
 
     let choix = parseInt(prompt(" Votre Choix: "))
     switch(choix) {
-        case 0:
-           arret=false; break;
+        case 0:{
+           arret=false; break;}
 
         case 1:{
             candidats.push(ajouterCandidat())
@@ -78,7 +78,7 @@ do{
             break;} 
              
         case 8:{
-            statistics()
+            statistics(candidats)
             break;  }         
         default : console.log("!!!  Please, Your Choice Should be in Menu !!! ")
     }   
