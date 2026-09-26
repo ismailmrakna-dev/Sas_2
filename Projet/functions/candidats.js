@@ -59,6 +59,7 @@ function affichageCandidats(candidats){
                     console.log(" ")
                     console.log("Candidat: #"+comp)
                     console.log(candidat)
+                    console.log("Numbers Votes: "+ candidat.electeurs.length)
                     console.log(" ")
                 }
                 break;
