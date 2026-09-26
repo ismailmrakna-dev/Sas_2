@@ -87,7 +87,22 @@ function partiPolitiqueCandidats(candidats){
         console.log("")
     }
 }
+// methode 2 : partipolitique Nombres Candidats
+function partiPolitiqueCandidats2(candidats){
+    obj={}
+for (const candidat of candidats){
+    if(obj[candidat.partiPolitique]){
+        obj[candidat.partiPolitique] += 1
+    }
+    else {
+        obj[candidat.partiPolitique]=1
+    }
+}
+console.log(obj)
+}
 // function to start statistics choice
+
+
 function statistics(candidats){
     console.log("-------- Menu Des statistiques ---------")
             console.log(" ")
@@ -108,7 +123,8 @@ function statistics(candidats){
                     topCandidats(candidats)
                     break;
                 case 4 :
-                    partiPolitiqueCandidats(candidats)
+                    //partiPolitiqueCandidats(candidats)
+                    partiPolitiqueCandidats2(candidats);
                     break;
                 default:  
                 console.log("xx-- choix n'existe pas --xx")         
@@ -123,5 +139,6 @@ module.exports={
     trierCandidats,
     topCandidats,
     partiPolitiqueCandidats,
+    partiPolitiqueCandidats2,
     statistics 
 };
