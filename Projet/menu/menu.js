@@ -3,32 +3,23 @@ const prompt= require("prompt-sync")();
 const {
     ajouterCandidat,
     ajouterMultiCand,
-    afficherCandidat,
     affichageCandidats  
-}=require("../functions/candidats").default;
+}=require("../functions/candidats");
 
 const {
-    voterCandidat,
-    verifieElecteur,
-    searchCandidat  
-}=require("../functions/electeurs").default;
+    voterCandidat  
+}=require("../functions/electeurs");
 
 const {
-    modifierCandidat,
     editCandidat,
-    lengthArr,
     SupprimerCandidat,
     rechercheCandidat 
-}=require("../functions/candidat").default;
+}=require("../functions/candidat");
 const {
-    nombreCandidat,
-    nombreVotes,
-    trierCandidats,
-    topCandidats,
-    partiPolitiqueCandidats,
     statistics 
-}=require("../functions/statistics").default;
-const {candidats}=require("../data/data").default;
+}=require("../functions/statistics");
+const {candidats}=require("../data/data");
+
 
 function startMenu(){
 let arret = true;
@@ -51,8 +42,8 @@ do{
 
     let choix = parseInt(prompt(" Votre Choix: "))
     switch(choix) {
-        case 0:
-           arret=false; break;
+        case 0:{
+           arret=false; break;}
 
         case 1:{
             candidats.push(ajouterCandidat())
@@ -88,13 +79,15 @@ do{
             break;} 
              
         case 8:{
-            statistics()
+            statistics(candidats)
             break;  }         
         default : console.log("!!!  Please, Your Choice Should be in Menu !!! ")
     }   
 
 }while(arret);
+
+
 }
-export default{
+module.exports={
     startMenu 
-}
+};

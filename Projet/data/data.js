@@ -165,4 +165,4 @@ const candidats=[
     }
 ]
 
-export default{candidats};
+module.exports={candidats};

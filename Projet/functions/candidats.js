@@ -1,3 +1,14 @@
+const prompt=require('prompt-sync')()
+const {
+    searchCandidat  
+}=require("../functions/electeurs");
+
+const {
+    trierCandidats,
+}=require("../functions/statistics");
+
+const {candidats}=require("../data/data");
+
 // Ajouter un nouveau Candidat
 function ajouterCandidat(cinCand){
     const candidat= {}
@@ -15,7 +26,8 @@ function ajouterCandidat(cinCand){
     candidat.prenom=prenom
     candidat.partiPolitique=partiPolitique
     candidat.age=age
-    candidat.electeurs=[]
+    candidat.electeurs=[] 
+    console.log("Candidat Ajoute avec Succes")
     return candidat 
 }
 function ajouterMultiCand(){
@@ -30,15 +42,6 @@ function ajouterMultiCand(){
     }
 }
 
-// Affichage les Information d'un candidat
-function afficherCandidat(candidat){
-    console.log("CIN: "+ candidat.cin)
-    console.log("Nom: "+candidat.nom)
-    console.log("Prenom: "+candidat.prenom)
-    console.log("Partie Politique: "+candidat.partiPolitique)
-    console.log("Age: "+candidat.age)
-    console.log("Electeurs: "+candidat.electeurs)
-}
 // Affichage tous candidats
 function affichageCandidats(candidats){
     console.log("---------- Menu Affichage Candidats ---------")
@@ -55,7 +58,7 @@ function affichageCandidats(candidats){
                     comp++
                     console.log(" ")
                     console.log("Candidat: #"+comp)
-                    afficherCandidat(candidat)
+                    console.log(candidat)
                     console.log(" ")
                 }
                 break;
@@ -68,7 +71,8 @@ function affichageCandidats(candidats){
                         cmp++
                         console.log(" ")
                         console.log("Candidat: #"+cmp)
-                        afficherCandidat(candidat)
+                        console.log(candidat)
+                        console.log("Numbers Votes: "+candidat.electeurs.length)
                         console.log(" ")
                     }
                 }
@@ -76,9 +80,8 @@ function affichageCandidats(candidats){
             default : console.log("!!!  Please, Your Choice Should be in Menu !!! ")    
         }
 }
-export default{
+module.exports={
     ajouterCandidat,
     ajouterMultiCand,
-    afficherCandidat,
     affichageCandidats  
-}
+};

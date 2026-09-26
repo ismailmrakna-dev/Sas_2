@@ -1,3 +1,5 @@
+const prompt=require('prompt-sync')()
+
 // pour un Electeur Voulez de voter sur un Candidat 
 function voterCandidat(candidats){
     let cniElec= prompt("Entez votre CIN(Numero De Carte Nationnal): ")
@@ -7,6 +9,7 @@ function voterCandidat(candidats){
         let index= searchCandidat(candidats,cinCand)
         if(index !== -1){
             candidats[index].electeurs.push(cniElec)
+            console.log("Vote enregistree avec Succes")
         }
         else console.log("Il n'y a pas Un candidat avec CIN:  " + cinCand)
     }
@@ -28,7 +31,7 @@ function verifieElecteur(candidats,cniElec){
 function searchCandidat(candidats, cin_cand){
     let index=0
     for (const candidat of candidats){
-        if(candidats[index].cin.toLowerCase() == cin_cand.toLowerCase()){
+        if(candidat.cin.toLowerCase() == cin_cand.toLowerCase()){
            return index 
         }
         index++
@@ -36,8 +39,8 @@ function searchCandidat(candidats, cin_cand){
     return -1
 }
 
-export default{
+module.exports={
     voterCandidat,
     verifieElecteur,
     searchCandidat  
-}
+};
