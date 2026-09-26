@@ -4,6 +4,10 @@ const {
 }=require("../functions/electeurs");
 
 const {
+    lengthArr,
+}=require("../functions/candidat");
+
+const {
     trierCandidats,
 }=require("../functions/statistics");
 
@@ -59,7 +63,7 @@ function affichageCandidats(candidats){
                     console.log(" ")
                     console.log("Candidat: #"+comp)
                     console.log(candidat)
-                    console.log("Numbers Votes: "+ candidat.electeurs.length)
+                    console.log("Numbers Votes: "+ lengthArr(candidat.electeurs))
                     console.log(" ")
                 }
                 break;
@@ -73,7 +77,7 @@ function affichageCandidats(candidats){
                         console.log(" ")
                         console.log("Candidat: #"+cmp)
                         console.log(candidat)
-                        console.log("Numbers Votes: "+candidat.electeurs.length)
+                        console.log("Numbers Votes: "+lengthArr(candidat.electeurs))
                         console.log(" ")
                     }
                 }

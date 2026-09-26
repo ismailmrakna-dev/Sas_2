@@ -43,7 +43,7 @@ function topCandidats(candidats){
     else{
         for (const candidat of candidats){
             console.log(candidat)
-            console.log("Numbers Votes: "+ candidat.electeurs.length)
+            console.log("Numbers Votes: "+lengthArr(candidat.electeurs))
             console.log("")
             index -= 1
             if(index <=0 ){
@@ -52,7 +52,9 @@ function topCandidats(candidats){
         }
     }
 }
+
 // Affichage des Candidats par parti politique
+
 function partiPolitiqueCandidats(candidats){
     const politiqueArr=[]
     politiqueArr.push(candidats[0].partiPolitique)
