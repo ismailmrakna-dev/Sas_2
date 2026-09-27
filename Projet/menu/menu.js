@@ -46,7 +46,8 @@ do{
            arret=false; break;}
 
         case 1:{
-            candidats.push(ajouterCandidat())
+            let cinCand = String(prompt("Entez votre CIN(Numero De Carte Nationnal): "))
+            candidats.push(ajouterCandidat(cinCand))
             break;
         }
 

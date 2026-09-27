@@ -4,7 +4,7 @@ const {
     searchCandidat  
 }=require("../functions/electeurs");
 
-
+const {candidats}=require("../data/data");
 
 //Modify a candidat After Cheeking 
 function modifierCandidat(candidats,cin){

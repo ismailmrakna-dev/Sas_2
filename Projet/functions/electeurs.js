@@ -19,7 +19,7 @@ function verifieElecteur(candidats,cniElec){
     for( const candidat of candidats){
         for (const electeur of candidat.electeurs){
             if (electeur === cniElec){
-                console.log("Vous avez deja voter sur '"+candidat.nom+" | "+candidat.cni)
+                console.log("Vous avez deja voter sur ' "+ candidat.nom + " '| "+ candidat.cin)
                 console.log("Vous n'avez pas le droit de modifier votre vote ni voter a nouveau")
                 return false
             }
