@@ -1,0 +1,20 @@
+const apprenants = [
+  { nom: "Sara", skills: ["HTML", "CSS", "JavaScript", "React"] },
+  { nom: "Ali", skills: ["Python", "SQL", "JavaScript"] },
+  { nom: "Karim", skills: ["HTML", "CSS", "Node"] },
+  { nom: "Nadia", skills: ["JavaScript", "React", "Node"] },
+];
+const obj={}
+
+for(const apprenant of apprenants){
+    for(i=0; i<apprenant.skills.length ;i++){
+        if(obj[apprenant.skills[i]]){
+           obj[apprenant.skills[i]].push(apprenant.nom)
+        }
+        else{
+            obj[apprenant.skills[i]]=[apprenant.nom]
+        }
+    }
+    }
+console.log(obj)    
+
