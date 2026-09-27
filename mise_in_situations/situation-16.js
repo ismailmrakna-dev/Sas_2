@@ -1,4 +1,5 @@
 function toLower(str){
+    
     let str1=""
     let lower="abcdefghijklmnopqrstuvwxz"
     let upper="ABCDEFGHIJKLMNOPQRSTUVWXZ"
