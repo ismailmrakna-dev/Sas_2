@@ -22,7 +22,7 @@ function ajouterCandidat(cinCand){
     let age=0
     do{
     age = parseInt(prompt("Entez votre age: "))
-    }while(age<=0 || age>120)
+    }while(age<=17 || age>120 )
     if(partiPolitique==="" || partiPolitique===" " ||partiPolitique==="  ")
         partiPolitique = "Independant"
     candidat.cin=cinCand
